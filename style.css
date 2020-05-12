@@ -1,0 +1,71 @@
+body {
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+  line-height: 1.15;
+  margin: 0 auto;
+  width: 550px;
+}
+
+h1 {
+  font-size: 1.802em;
+  font-weight: bold;
+  margin: 2.75rem 0 1.05rem;
+}
+
+input {
+  border: solid thin black;
+  margin-bottom: 0.5rem;
+  padding: 3px;
+}
+
+form {
+  border-bottom: solid thin black;
+}
+
+form {
+  margin: 1rem 0;
+  padding-bottom: 1rem;
+}
+
+input,
+button {
+  border-radius: 3px;
+}
+
+button[type="submit"] {
+  background-color: green;
+  color: white;
+}
+
+button {
+  background-color: aqua;
+  padding: 0.5rem;
+  text-transform: uppercase;
+}
+
+#filter-min-salary {
+  background-color: orange;
+  border-radius: 50%;
+  height: 44px;
+  text-transform: capitalize;
+  width: 44px;
+}
+
+#min-salary-container * {
+  margin: 0.25rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--justify-content-space-between {
+  justify-content: space-between;
+}
+
+.screen-reader-text {
+  left: -9999px;
+  position: absolute;
+  top: -9999px;
+}
