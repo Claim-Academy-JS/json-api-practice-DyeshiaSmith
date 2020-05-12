@@ -4,7 +4,8 @@
   "description": "Just practicing with usind the DOM using restful APIs",
   "main": "index.js",
   "scripts": {
-    "serve": "browser-sync start --server --files '*.html, *.css, *.js'"
+    "serve": "browser-sync start --server --files '*.html, *.css, *.js'",
+    "db": "json-server --watch -p 4000 ./db/employees.json"
   },
   "keywords": [],
   "author": "",
