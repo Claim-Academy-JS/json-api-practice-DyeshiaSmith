@@ -1,7 +1,7 @@
 {
-  "name": "js-starter",
+  "name": "jemployees",
   "version": "1.0.0",
-  "description": "",
+  "description": "Just practicing with usind the DOM using restful APIs",
   "main": "index.js",
   "scripts": {
     "serve": "browser-sync start --server --files '*.html, *.css, *.js'"
