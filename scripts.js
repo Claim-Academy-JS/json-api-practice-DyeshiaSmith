@@ -25,4 +25,9 @@ import { getAllEmployees } from './api/index.js'
   }
 })()
 
+const app = document.querySelector('#app')
 const tbody = document.querySelector('tbody')
+const templateContent = app.querySelector('template').content.cloneNode(true)
+
+console.log(templateContent)
+app.appendChild(templateContent)
