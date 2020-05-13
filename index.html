@@ -52,16 +52,46 @@
 
     <div id="app">
       <template>
+        <style>
+          table {
+            margin: 0.5rem 0;
+            padding: 0.5rem 0;
+            width: 550px;
+          }
+
+          th {
+            font-size: 1.125em;
+            font-weight: bold;
+          }
+
+          tr {
+            border-bottom: solid thin black;
+            padding: 0.25rem 0;
+          }
+
+          td {
+            padding: 0 0.25rem;
+            width: 33.3%;
+          }
+
+          td:last-child {
+            width: auto;
+          }
+        </style>
+
         <table>
           <thead>
             <tr class="flex flex--justify-content-space-between">
-              <th>Name</th>
-              <th>Age</th>
-              <th>Salary</th>
-            </tr>
+              </tr>
           </thead>
 
-          <tbody></tbody>
+          <tbody>
+            <tr>
+              <td>
+                <div id="loader" class="loader"></div>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </template>
     </div>

@@ -5,36 +5,37 @@ import { getAllEmployees } from './api/index.js'
   try {
     const employees = await getAllEmployees()
 
-    tbody.innerHTML = employees
+    loader.classList.toggle('loader')
+
+    tbody.innerHTML += employees
       .map(
         ({ employee_name: name, employee_age: age, employee_salary: salary }) => `
-  <tr>
-  <td>${name}</td>
-  <td>${age}</td>
-  <td>${salary}</td>
-  </tr>
+          <tr>
+            <td>${name}</td>
+            <td>${age}</td>
+            <td>${salary}</td>
+          </tr>
   `
       )
       .join('')
   } catch (error) {
     tbody.innerHTML = `
-      <tr>
-        <td>'Currently facig issue regardig db', ${error}</td>
+      <tr class="flex flex--justify-content-space-between">
+        <td>'Currently facing issue regarding db', ${error}</td>
       </tr>
     `
   }
 })()
 
 const app = document.querySelector('#app')
-const tbody = document.querySelector('tbody')
 const templateContent = app.querySelector('template').content.cloneNode(true)
 
+const tbody = templateContent.querySelector('tbody')
+const loader = tbody.querySelector('#loader')
 const ths = ['name', 'Age', 'Salary']
 
-templateContent.querySelector('head tr').innerHTML = ths
+templateContent.querySelector('thead tr').innerHTML = ths
   .map((th) => `<th>${th}</th>`)
   .join(' ')
-
-// TODO: Map over array and generate th tags for each of the th's
 
 app.appendChild(templateContent)
