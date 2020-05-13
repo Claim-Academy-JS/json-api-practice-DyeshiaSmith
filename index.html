@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Employees</title>
 
-    <link rel="stylesheet" href="https://yarnpkg.com/en/package/normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://yarnpkg.com/en/package/normalize.css"
+    />
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -37,13 +43,14 @@
     </form>
 
     <form action="#" id="salary-filter-form">
-        <div id="min-salary-container">
+      <div id="min-salary-container">
         <label for="salary-filter">Enter Minimum Salary Filter</label>
         <input type="text" id="salary-filter" />
         <button type="submit" id="filter-min-salary">Go!</button>
       </div>
-
     </form>
+
+    <template>
     <table>
       <thead>
         <tr class="flex flex--justify-content-space-between">
@@ -53,9 +60,10 @@
         </tr>
       </thead>
 
-      <tbody>
-      </tbody>
+      <tbody></tbody>
     </table>
-    <script src="./scripts.js" type= "module"></script>
+  </template>
+
+    <script src="./scripts.js" type="module"></script>
   </body>
 </html>
