@@ -29,5 +29,12 @@ const app = document.querySelector('#app')
 const tbody = document.querySelector('tbody')
 const templateContent = app.querySelector('template').content.cloneNode(true)
 
-console.log(templateContent)
+const ths = ['name', 'Age', 'Salary']
+
+templateContent.querySelector('head tr').innerHTML = ths
+  .map((th) => `<th>${th}</th>`)
+  .join(' ')
+
+// TODO: Map over array and generate th tags for each of the th's
+
 app.appendChild(templateContent)
