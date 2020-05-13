@@ -1,11 +1,10 @@
 {
-  "name": "jemployees",
+  "name": "employees",
   "version": "1.0.0",
-  "description": "Just practicing with usind the DOM using restful APIs",
+  "description": "Just practicing with using the DOM using restful APIs",
   "main": "index.js",
   "scripts": {
-    "serve": "browser-sync start --server --files '*.html, *.css, *.js'",
-    "db": "json-server --watch -p 4000 ./db/employees.json"
+    "serve": "browser-sync start --server --files '*.html, *.css, **/*.js'",
   },
   "keywords": [],
   "author": "",
