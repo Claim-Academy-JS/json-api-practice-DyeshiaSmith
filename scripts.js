@@ -1,17 +1,28 @@
+// Modules in the browser require full paths and extensions
 import { getAllEmployees } from './api/index.js'
 
-// IIFE
 (async () => {
-  const employees = await getAllEmployees()
+  try {
+    const employees = await getAllEmployees()
 
-  tbody.innerHTML = employees.map(({ employee_name: name, employee_age: age, employee_salary: salary }) => `
+    tbody.innerHTML = employees
+      .map(
+        ({ employee_name: name, employee_age: age, employee_salary: salary }) => `
   <tr>
   <td>${name}</td>
   <td>${age}</td>
   <td>${salary}</td>
   </tr>
   `
-  ).join(' ')
+      )
+      .join('')
+  } catch (error) {
+    tbody.innerHTML = `
+      <tr>
+        <td>'Currently facig issue regardig db', ${error}</td>
+      </tr>
+    `
+  }
 })()
 
 const tbody = document.querySelector('tbody')

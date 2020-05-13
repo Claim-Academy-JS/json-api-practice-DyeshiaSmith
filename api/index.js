@@ -1,7 +1,11 @@
 export const getAllEmployees = async () => {
-  // fetch RETURNS a PROMISE
-  const employeesData = await window.fetch('http://localhost:4000/employees')
-
-  // change our raw response into 'readable' JSON wrapped into a promise
-  return employeesData.json()
+  try {
+    const employeesData = await window.fetch(
+      'http://localhost:4000/x'
+    )
+    // Change our raw response into 'readable' JSON wrapped in a PROMISE
+    return employeesData.json()
+  } catch (error) {
+    throw new Error(error)
+  }
 }

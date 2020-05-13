@@ -21,9 +21,6 @@ input {
 
 form {
   border-bottom: solid thin black;
-}
-
-form {
   margin: 1rem 0;
   padding-bottom: 1rem;
 }
