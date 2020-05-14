@@ -1,16 +1,19 @@
 {
   "name": "employees",
   "version": "1.0.0",
-  "description": "Just practicing with using the DOM using restful APIs",
-  "main": "index.js",
+  "description": "Just practicing with using the DOM with RESTful API",
+  "main": "scripts.js",
   "scripts": {
-    "serve": "browser-sync start --server --files '*.html, *.css, **/*.js'"
+    "serve": "browser-sync start --server --files '*.html, *.css, **/*.js'",
+    "db": "json-server -p 4000 --delay 3000 --watch ./db/employees.json",
+    "dep-cruise": "depcruise --exclude '^node_modules' --output-type dot ./ | dot -T svg > dependencygraph.svg"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.7",
+    "dependency-cruiser": "^9.1.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",

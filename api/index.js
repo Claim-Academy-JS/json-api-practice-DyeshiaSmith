@@ -1,5 +1,7 @@
+
 export const getAllEmployees = async () => {
   try {
+    // fetch RETURNS a PROMISE
     const employeesData = await window.fetch(
       'http://localhost:4000/employees'
     )
