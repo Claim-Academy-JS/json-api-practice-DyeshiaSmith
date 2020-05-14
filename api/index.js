@@ -1,3 +1,16 @@
+export const addEmployee = async (newEmployee) => {
+  try {
+    await window.fetch('http://localhost:4000/employees', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newEmployee)
+    })
+  } catch (error) {
+    throw new Error(error)
+  }
+}
 
 export const getAllEmployees = async () => {
   try {

@@ -1,5 +1,5 @@
 // Modules in the browser require full paths and extensions
-import { getAllEmployees } from './api/index.js'
+import * as api from './api/index.js'
 
 const app = document.querySelector('#app')
 
@@ -18,12 +18,24 @@ templateContent.querySelector('thead tr').innerHTML = ths
   .join(' ')
 
 // Add all of the elements to '#app'
-app.appendChild(templateContent);
+app.appendChild(templateContent)
+
+const empName = document.querySelector('#employee_name')
+
+document.querySelector('#addEmployee').addEventListener('submit', e => {
+  e.preventDefault()
+
+  const test = {
+    employee_name: empName.value
+  }
+
+  api.addEmployee(test)
+});
 
 // Use IIFE as we definitely want to TRY to 'initialize' our app with the data
 (async () => {
   try {
-    const employees = await getAllEmployees()
+    const employees = await api.getAllEmployees()
 
     /**
      * Just replace the contents of 'tbody' outright.
@@ -43,7 +55,7 @@ app.appendChild(templateContent);
   } catch (error) {
     tbody.innerHTML = `
       <tr class="flex flex--justify-content-space-between">
-        <td>'Currently facing issue regarding db', ${error}</td>
+        <td>'Currently facig issue regardig db', ${error}</td>
       </tr>
     `
   }
