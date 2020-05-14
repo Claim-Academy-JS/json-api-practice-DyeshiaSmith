@@ -20,16 +20,12 @@ templateContent.querySelector('thead tr').innerHTML = ths
 // Add all of the elements to '#app'
 app.appendChild(templateContent)
 
-const empName = document.querySelector('#employee_name')
+document.querySelectorAll('form').forEach(form => {
+  form.addEventListener('submit', e => {
+    e.preventDefault()
 
-document.querySelector('#addEmployee').addEventListener('submit', e => {
-  e.preventDefault()
-
-  const test = {
-    employee_name: empName.value
-  }
-
-  api.addEmployee(test)
+    console.log(form.elements, 'submit')
+  })
 });
 
 // Use IIFE as we definitely want to TRY to 'initialize' our app with the data
