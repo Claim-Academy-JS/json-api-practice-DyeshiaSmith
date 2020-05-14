@@ -24,7 +24,8 @@ document.querySelectorAll('form').forEach(form => {
   form.addEventListener('submit', e => {
     e.preventDefault()
 
-    Array.from(form).filter(({ id }) => id)
+    api.addEmployee(Array.from(form).filter(({ id }) => id).map(el => ({ [el.id]: el.value })).reduce((accumulatedData, currentData) => ({ ...accumulatedData, ...currentData })
+    ))
   })
 });
 
