@@ -24,7 +24,7 @@ document.querySelectorAll('form').forEach(form => {
   form.addEventListener('submit', e => {
     e.preventDefault()
 
-    console.log(form.elements, 'submit')
+    Array.from(form).filter(({ id }) => id)
   })
 });
 
