@@ -1,6 +1,8 @@
 // Modules in the browser require full paths and extensions
 import * as api from './api/index.js'
 
+import { convertDOBToAge, processFormData } from './utils/index.js'
+
 const app = document.querySelector('#app')
 
 // Clone the 'document fragment'
@@ -24,8 +26,13 @@ document.querySelectorAll('form').forEach(form => {
   form.addEventListener('submit', e => {
     e.preventDefault()
 
-    api.addEmployee(Array.from(form).filter(({ id }) => id).map(({ id, value }) => ({ id: value })).reduce((accumulatedData, currentData) => ({ ...accumulatedData, ...currentData })
-    ))
+    const newEmployee = processFormData(form)
+
+    // TODO: Add the proper 'employee_age'
+    newEmployee.employee_age = convertDOBToAge(newEmployee.employee_age)
+
+    // TODO: ADD this to database
+    api.addEmployee(newEmployee)
   })
 });
 
