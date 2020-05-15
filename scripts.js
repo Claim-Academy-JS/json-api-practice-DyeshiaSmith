@@ -11,8 +11,20 @@ const ths = ['Name', 'Age', 'Salary']
 
 const tbody = templateContent.querySelector('tbody')
 
-// Maintain a reference to this 1️⃣ for adding it back l8r.
+// Maintain a reference to this 1️ for adding it back later.
 const loader = tbody.querySelector('#loader')
+
+const formHandlers = {
+  addEmployee (emp) {
+    emp.employee_age = convertDOBToAge(emp.employee_age)
+    api.addEmployee(emp)
+  }
+}
+
+const state = {
+  employees: [],
+  headings: ['name', 'age', 'salary']
+}
 
 // 'thead tr' starts off empty
 templateContent.querySelector('thead tr').innerHTML = ths
@@ -26,13 +38,8 @@ document.querySelectorAll('form').forEach(form => {
   form.addEventListener('submit', e => {
     e.preventDefault()
 
-    const newEmployee = processFormData(form)
-
-    // TODO: Add the proper 'employee_age'
-    newEmployee.employee_age = convertDOBToAge(newEmployee.employee_age)
-
-    // TODO: ADD this to database
-    api.addEmployee(newEmployee)
+    // process the form data and pass this object into the correct formHandler
+    formHandlers[form.id](processFormData(form))
   })
 });
 
