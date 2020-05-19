@@ -1,16 +1,15 @@
 import * as components from './components'
 
-import * as api from './api'
+import { convertDOBToAge, processFormData } from './utils/index.js'
 
-import { processFormData, convertDOBToAge } from './utils'
+import * as api from './api/index.js'
 
 const root = document.querySelector('#root')
 
 const state = {
   Table: {
     employees: [],
-    headers: ['Name', 'Age', 'Salary'],
-    isLoading: false
+    headings: ['Name', 'Age', 'Salary']
   }
 }
 
@@ -24,29 +23,28 @@ const formHandlers = {
     emp.employee_age = convertDOBToAge(emp.employee_age)
 
     api.addEmployee(emp)
-
-    // UPDATE state. table.employees as long there were no errors
+      // Update state.Table.employees as long there were no errors
       .then(() => {
-        state.Table.employees.push(emp)
-        render(state)
+        state.Table.employees.concat([emp])
+        render()
       }).catch(error => {
         console.error(error)
       })
   }
 }
 
-document.querySelectorAll('form').forEach(form => {
-  form.addEventListener('submit', e => {
+document.querySelectorAll('form').forEach((form) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault()
 
+    // Process the form data and pass this object into the correct formHandler
     formHandlers[form.id](processFormData(form))
   })
 })
 
-render(state)
+render();
 
-// semicolon in front of IIFE does not get moved by linter and keeps the compiler happy
-;(async () => {
+(async () => {
   try {
     state.Table.employees = await api.getAllEmployees()
     render(state)

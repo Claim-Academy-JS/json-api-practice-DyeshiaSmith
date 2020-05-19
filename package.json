@@ -4,12 +4,12 @@
   "description": "Just practicing with using the DOM with RESTful API",
   "main": "src/index.html",
   "scripts": {
-    "serve": "parcel sc/index.html",
+    "serve": "parcel src/index.html",
     "db": "json-server -p 4000 --delay 3000 --watch ./db/employees.json",
     "dep-cruise": "depcruise --exclude '^node_modules' --output-type dot ./ | dot -T svg > dependencygraph.svg"
   },
   "keywords": [],
-  "author": "",
+  "author": "Manav Misra",
   "license": "ISC",
   "devDependencies": {
     "dependency-cruiser": "^9.1.0",

@@ -1,27 +1,20 @@
-const createTableHeaders = (headers) => headers.map(header => `<th>${header}</th>`).join(' ')
+const createTHs = (ths) => ths.map((th) => `<th>${th}</th>`).join(' ')
+const createTDs = employees => employees.map(({ employee_name: employeeName, employee_salary: employeeSalary, employee_age: employeeAge }) => `
+<td>${employeeName}</td>
+<td>${employeeSalary}</td>
+<td>${employeeAge}</td>
+`).join('')
 
-const creatTDs = (employees) => employees.map(({ employee_name: name, employee_age: age, employee_salary: salary }) => {
-  return `
-  <tr class="flex flex--justify-content-space-between>
-    <td>${name}</td>
-    <td>${age}</td>
-    <td>${salary}</td>
-  </tr>
-`
-}).join(' ')
-
-export default ({ employees, headers }) => `
+export default ({ employees, headings }) => `
 <table>
   <thead>
     <tr class="flex flex--justify-content-space-between">
-    ${createTableHeaders(headers)}
+      ${createTHs(headings)}
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>
-        ${creatTDs(employees)}
-      </td>
+      ${createTDs(employees)}
     </tr>
   </tbody>
 </table>
