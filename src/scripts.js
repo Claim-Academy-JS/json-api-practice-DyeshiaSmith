@@ -14,22 +14,8 @@ const tbody = templateContent.querySelector('tbody')
 // Maintain a reference to this 1️ for adding it back later.
 const loader = tbody.querySelector('#loader')
 
-const formHandlers = {
-  addEmployee (emp) {
-    emp.employee_age = convertDOBToAge(emp.employee_age)
-    api.addEmployee(emp)
-  }
-}
-
-const state = {
-  employees: [],
-  headings: ['name', 'age', 'salary']
-}
-
 // 'thead tr' starts off empty
-templateContent.querySelector('thead tr').innerHTML = ths
-  .map((th) => `<th>${th}</th>`)
-  .join(' ')
+templateContent.querySelector('thead tr').innerHTML =
 
 // Add all of the elements to '#app'
 app.appendChild(templateContent)

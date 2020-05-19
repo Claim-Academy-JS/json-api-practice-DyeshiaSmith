@@ -19,11 +19,7 @@
   </head>
 
   <body>
-
-    <header class="flex">
-          <h1>Employees</h1>
-          <div id="loader"></div>
-        </header>
+    <h1>Employees</h1>
 
     <form action="#" id="addEmployee">
       <div class="flex flex--justify-content-space-between">
@@ -54,101 +50,8 @@
       </div>
     </form>
 
-    <div id="app">
-      <template>
-        <style>
-          table {
-            margin: 0.5rem 0;
-            padding: 0.5rem 0;
-            width: 550px;
-          }
+    <div id="root"></div>
 
-          th {
-            font-size: 1.125em;
-            font-weight: bold;
-          }
-
-          tr {
-            border-bottom: solid thin black;
-            padding: 0.25rem 0;
-          }
-
-          td {
-            padding: 0 0.25rem;
-            width: 33.3%;
-          }
-
-          td:last-child {
-            width: auto;
-          }
-
-          /* Loader - Customized from: https://projects.lukehaas.me/css-loaders/ */
-          .loader,
-          .loader::before,
-          .loader::after {
-            animation: load1 1s infinite ease-in-out;
-            background: orangered;
-            height: 4rem;
-            width: 1rem;
-          }
-
-          .loader {
-            animation-delay: -0.16s;
-            color: orangered;
-            font-size: 1.1em;
-            margin: 8.8rem auto;
-            position: relative;
-            text-indent: -9999rem;
-            transform: translateZ(0);
-          }
-
-          .loader::before,
-          .loader::after {
-            content: "";
-            position: absolute;
-            top: 0;
-          }
-
-          .loader::before {
-            animation-delay: -0.32s;
-            left: -1.5rem;
-          }
-
-          .loader::after {
-            left: 1.5rem;
-          }
-
-          @keyframes load1 {
-            0%,
-            80%,
-            100% {
-              box-shadow: 0 0;
-              height: 4rem;
-            }
-
-            40% {
-              box-shadow: 0 -2rem;
-              height: 5rem;
-            }
-          }
-        </style>
-
-        <table>
-          <thead>
-            <tr class="flex flex--justify-content-space-between" />
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>
-                <div id="table-loader" class="table-loader"></div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </template>
-    </div>
-
-    <script src="./scripts.js" type="module"></script>
+    <script src="./index.js"></script>
   </body>
 </html>

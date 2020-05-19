@@ -1,4 +1,4 @@
-export const addEmployee = async (newEmployee) => {
+export const postEmployee = async (newEmployee) => {
   try {
     await window.fetch('http://localhost:4000/employees', {
       method: 'POST',
@@ -7,20 +7,16 @@ export const addEmployee = async (newEmployee) => {
       },
       body: JSON.stringify(newEmployee)
     })
-  } catch (error) {
+  } catch (error) { (local var) error
     throw new Error(error)
   }
 }
 
 export const getAllEmployees = async () => {
   try {
-    // fetch RETURNS a PROMISE
-    const employeesData = await window.fetch(
-      'http://localhost:4000/employees'
-    )
-    // Change our raw response into 'readable' JSON wrapped in a PROMISE
+    const employeesData = await window.fetch('http://localhost:4000/employees')
     return employeesData.json()
   } catch (error) {
-    throw new Error(error)
+    throw new Error('Could not fetch a file due to issues with database')
   }
 }
